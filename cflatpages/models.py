@@ -57,11 +57,12 @@ class CFlatPage(FlatPage):
         Category,
         verbose_name=_(u'category'),
         related_name='page_category', )
-    pos = models.IntegerField(_(u'position'), default=0, blank=True)
+    num = models.PositiveSmallIntegerField(_(u'order number'), default=1, )
 
     def __str__(self):
         return self.title
 
     class Meta():
+        ordering = ['num']
         verbose_name = _(u'categorized flatpage')
         verbose_name_plural = _(u'categorized flatpages')

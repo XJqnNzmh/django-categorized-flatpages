@@ -40,7 +40,7 @@ class CategorizedFlatPageAdmin(FlatPageAdmin):
                 'sites',
                 'keywords',
                 'description',
-                'pos', )}),
+                'num', )}),
         (
             _(u'advanced options'),
             {
