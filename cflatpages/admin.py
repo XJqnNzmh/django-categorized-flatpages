@@ -39,7 +39,8 @@ class CategorizedFlatPageAdmin(FlatPageAdmin):
                 'content',
                 'sites',
                 'keywords',
-                'description', )}),
+                'description',
+                'pos', )}),
         (
             _(u'advanced options'),
             {

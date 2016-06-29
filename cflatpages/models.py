@@ -57,6 +57,7 @@ class CFlatPage(FlatPage):
         Category,
         verbose_name=_(u'category'),
         related_name='page_category', )
+    pos = models.IntegerField(_(u'position'), default=0, blank=True)
 
     def __str__(self):
         return self.title
