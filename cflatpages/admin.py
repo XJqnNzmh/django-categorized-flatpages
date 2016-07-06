@@ -3,8 +3,6 @@ from django.contrib import admin
 from django.contrib.flatpages.admin import FlatPageAdmin, FlatpageForm
 from django.contrib.flatpages.models import FlatPage
 from django import forms
-from django.core.urlresolvers import reverse
-from django.utils.html import format_html
 from mptt.admin import MPTTModelAdmin
 from django.utils.translation import ugettext_lazy as _
 
@@ -32,7 +30,7 @@ class CategorizedFlatPageAdmin(FlatPageAdmin):
     Management of the CategorizedFlatPage model
     """
     form = CategorizedFlatpageForm
-    list_display = ['title', 'url', 'category_link', 'num']
+    list_display = ['title', 'url', 'category', 'num']
     fieldsets = (
         (None, {
             'fields': (
@@ -52,12 +50,6 @@ class CategorizedFlatPageAdmin(FlatPageAdmin):
                     'enable_comments',
                     'registration_required',
                     'template_name', ), }, ), )
-
-    def category_link(self, obj):
-        url = reverse('admin:cflatpages_category_change', args=[obj.category.id])
-        return format_html(u'<a href={0}>{1}</a>', url, obj.category.title)
-
-    category_link.short_description = 'Category'
 
 
 @admin.register(Category)
