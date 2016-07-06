@@ -18,7 +18,7 @@ class CategorizedFlatpageForm(FlatpageForm):
     """
     content = forms.CharField(widget=CKEditorWidget()
         if 'ckeditor' in settings.INSTALLED_APPS else forms.TextInput())
-    
+
     class Meta:
         model = CFlatPage
         fields = '__all__'
@@ -30,6 +30,7 @@ class CategorizedFlatPageAdmin(FlatPageAdmin):
     Management of the CategorizedFlatPage model
     """
     form = CategorizedFlatpageForm
+    list_display = ['category', 'url', 'title', 'num']
     fieldsets = (
         (None, {
             'fields': (
