@@ -39,6 +39,7 @@ class Category(MPTTModel):
         order_insertion_by = ['num']
 
     class Meta():
+        ordering = ['num']
         verbose_name = _(u'category')
         verbose_name_plural = _(u'categories')
 
